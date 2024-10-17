@@ -25,6 +25,12 @@
     #dev
     rustup
     nil
+
+    #docker
+    docker
+    docker-compose
+    colima #for the runtime
+    qemu
  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
