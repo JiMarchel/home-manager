@@ -70,10 +70,7 @@
   imports = [
    	   ./programs/helix.nix
        ./programs/tmux.nix 
-<<<<<<< HEAD
-=======
        ./programs/git.nix
->>>>>>> master
 	    ];
 
   programs.home-manager.enable = true;
