@@ -21,17 +21,16 @@
     neofetch
     bat
     tree
-
-    #dev
-    rustup
+    unzip
     nil
 
-    #docker
-    docker
-    docker-compose
-    colima #for the runtime
-    qemu
- ];
+    #rust
+    rustup
+    sqlx-cli
+
+    #js
+    nodejs_22
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -71,6 +70,10 @@
   imports = [
    	   ./programs/helix.nix
        ./programs/tmux.nix 
+<<<<<<< HEAD
+=======
+       ./programs/git.nix
+>>>>>>> master
 	    ];
 
   programs.home-manager.enable = true;
