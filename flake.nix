@@ -17,15 +17,25 @@
     in {
       homeConfigurations."marchel" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [ 
 		    ./home/default.nix 
-		  ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+  		  ];
       };
+
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [ 
+          rustc 
+          cargo 
+          cargo-watch
+          cargo-expand
+          sqlx-cli
+          openssl.dev 
+          pkg-config 
+          ];
+
+          shellHook = ''
+              echo "Welcome to the shell!"
+          '';
+       };
     };
 }

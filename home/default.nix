@@ -23,10 +23,10 @@
     tree
     unzip
     nil
+    gcc
 
     #rust
     rustup
-    sqlx-cli
 
     #js
     nodejs_22
