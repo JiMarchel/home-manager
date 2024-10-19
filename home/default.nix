@@ -30,6 +30,13 @@
 
     #js
     nodejs_22
+    nodePackages_latest.typescript-language-server
+
+    #python
+    python312Packages.python-lsp-server
+
+    #dockerfile
+    dockerfile-language-server-nodejs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
