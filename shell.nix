@@ -6,6 +6,7 @@ mkShell {
     cargo 
     cargo-watch
     cargo-expand
+    cargo-chef
     sqlx-cli
     openssl.dev 
     pkg-config 
