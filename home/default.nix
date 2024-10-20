@@ -22,6 +22,7 @@
     bat
     tree
     unzip
+		wl-clipboard
     nil
     gcc
 
