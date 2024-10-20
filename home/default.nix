@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs,  ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -31,6 +31,8 @@
     #js
     nodejs_22
     nodePackages_latest.typescript-language-server
+    deno
+    bun
 
     #python
     python312Packages.python-lsp-server
@@ -78,6 +80,7 @@
    	   ./programs/helix.nix
        ./programs/tmux.nix 
        ./programs/git.nix
+       ./programs/nixvim.nix
 	    ];
 
   programs.home-manager.enable = true;
