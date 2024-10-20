@@ -247,6 +247,11 @@
 			lsp = {
 				enable = true;
 				servers = {
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
 					gopls = {
             enable = true;
             extraOptions = {
