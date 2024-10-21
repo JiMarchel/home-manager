@@ -23,7 +23,6 @@
     tree
     unzip
 		wl-clipboard
-    nil
     gcc
 
     #rust
@@ -31,15 +30,8 @@
 
     #js
     nodejs_22
-    nodePackages_latest.typescript-language-server
     deno
     bun
-
-    #python
-    python312Packages.python-lsp-server
-
-    #dockerfile
-    dockerfile-language-server-nodejs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,7 +70,6 @@
   };
 
   imports = [
-   	   ./programs/helix.nix
        ./programs/tmux.nix 
        ./programs/git.nix
        ./programs/nixvim.nix

@@ -3,21 +3,40 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.catppuccin = {
+    # colorschemes.catppuccin = {
+    #   enable = true;
+    #   settings = {
+    #     flavour = "mocha";
+    #     term_colors = true;
+    #     integrations = {
+    #       native_lsp = {
+    #         underlines = {
+    #           errors = [ "undercurl" ];
+    #           hints = [ "undercurl" ];
+    #           warnings = [ "undercurl" ];
+    #           information = [ "undercurl" ];
+    #         };
+    #       };
+    #     };
+    #   };
+    # };
+
+    colorschemes.tokyonight = {
       enable = true;
       settings = {
-        flavour = "mocha";
-        term_colors = true;
-        integrations = {
-          native_lsp = {
-            underlines = {
-              errors = [ "undercurl" ];
-              hints = [ "undercurl" ];
-              warnings = [ "undercurl" ];
-              information = [ "undercurl" ];
-            };
-          };
+      style = "moon";
+      styles = {
+        comments = {
+          italic = true;
         };
+        floats = "dark";
+        keywords = {
+          italic = true;
+        };
+        sidebars = "transparent";
+      };
+      terminal_colors = true;
+      transparent = true;
       };
     };
 
@@ -325,21 +344,21 @@
         };
       };
 
-			bufferline = {
-					enable = true;
-					settings.options = {
-						diagnostics = "nvim_lsp";
-						show_buffer_close_icons = false;
-						offsets = [
-							{
-								filetype = "neo-tree";
-								text = "Neotree";
-								separator = true;
-								text_align = "left";
-							}
-						];
-					};
-				};
+			# bufferline = {
+			# 		enable = true;
+			# 		settings.options = {
+			# 			diagnostics = "nvim_lsp";
+			# 			show_buffer_close_icons = false;
+			# 			offsets = [
+			# 				{
+			# 					filetype = "neo-tree";
+			# 					text = "Neotree";
+			# 					separator = true;
+			# 					text_align = "left";
+			# 				}
+			# 			];
+			# 		};
+			# 	};
 			telescope = {
 					enable = true;
 					keymaps = {
