@@ -73,6 +73,7 @@
        ./programs/tmux.nix 
        ./programs/git.nix
        ./programs/nixvim.nix
+       ./programs/zellij.nix
 	    ];
 
   programs.home-manager.enable = true;

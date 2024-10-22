@@ -3,24 +3,6 @@
   programs.nixvim = {
     enable = true;
 
-    # colorschemes.catppuccin = {
-    #   enable = true;
-    #   settings = {
-    #     flavour = "mocha";
-    #     term_colors = true;
-    #     integrations = {
-    #       native_lsp = {
-    #         underlines = {
-    #           errors = [ "undercurl" ];
-    #           hints = [ "undercurl" ];
-    #           warnings = [ "undercurl" ];
-    #           information = [ "undercurl" ];
-    #         };
-    #       };
-    #     };
-    #   };
-    # };
-
     colorschemes.tokyonight = {
       enable = true;
       settings = {
@@ -232,7 +214,9 @@
    };
 
     plugins = {
-		# plugins.web-devicons.enable = true;
+      tmux-navigator = {
+        enable = true;
+        };
 			mini = {
 			enable = true;
         modules.icons = { };
@@ -257,16 +241,13 @@
       };
       neo-tree = {
         enable = true;
-				filesystem = {
-					filteredItems.forceVisibleInEmptyFolder = true;
-				};
      };
       vim-surround.enable = true;
 
 			lsp = {
 				enable = true;
 				servers = {
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;
