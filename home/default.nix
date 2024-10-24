@@ -22,14 +22,20 @@
     };
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     neofetch
     bat
     tree
     unzip
 		wl-clipboard
-    gcc
 
+    brave
+    unzip
+    # wl-clipboard
+    
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
     rustup
 
@@ -38,7 +44,7 @@
     deno
     bun
 
-    android-studio
+    # android-studio
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -85,5 +91,5 @@
 
   programs.home-manager.enable = true;
 
-  programs.bash.enable = true;
+ # programs.bash.enable = true;
 }

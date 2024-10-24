@@ -260,6 +260,7 @@
           };
           nil_ls.enable = true;
           ts_ls.enable = true;
+          pyright.enable = true;
           emmet_ls = {
             enable = true;
             filetypes = [ "html" ];
