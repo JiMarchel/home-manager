@@ -1,10 +1,10 @@
 {
   programs.zellij = {
     enable = true;
-    settings = {
-      keybinds = {
-        unbind = ["Ctrl h"];
-      };
-    };
+    # settings = {
+    #   keybinds = {
+    #     unbind = ["Ctrl h"];
+    #   };
+    # };
   };
 }

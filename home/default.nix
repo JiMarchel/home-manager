@@ -38,6 +38,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
     rustup
+    sqlx-cli
 
     #js
     nodejs_22
@@ -87,9 +88,9 @@
        ./programs/git.nix
        ./programs/nixvim.nix
        ./programs/zellij.nix
+       ./programs/bash.nix
+       ./programs/starship.nix
 	    ];
 
   programs.home-manager.enable = true;
-
- # programs.bash.enable = true;
 }
