@@ -146,6 +146,10 @@
         action = "<cmd>Trouble diagnostics toggle<cr>";
       }
       {
+        key = "<leader>cd";
+        action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+      }
+      {
         key = "gd";
         action = "<cmd>Telescope lsp_definitions<CR>";
       }

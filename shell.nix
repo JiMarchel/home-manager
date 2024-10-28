@@ -3,6 +3,7 @@ with pkgs;
 mkShell {
     nativeBuildInputs = [ 
     rustc 
+    clippy
     cargo 
     cargo-watch
     cargo-expand
