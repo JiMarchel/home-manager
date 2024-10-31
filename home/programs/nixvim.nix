@@ -346,11 +346,19 @@
 			# 		};
 			# 	};
 			telescope = {
-					enable = true;
-					keymaps = {
-						"<leader><space>" = "find_files";
-						"<leader>/" = "live_grep";
-					};
+        enable = true;
+        settings = {
+          pickers = {
+            find_files = {
+              hidden = true;
+              no_ignore = true;
+            };
+          };
+        };
+        keymaps = {
+          "<leader><space>" = "find_files";
+          "<leader>/" = "live_grep";
+        };
 			};
 			treesitter-context.enable = true;
 			treesitter-refactor.enable = true;
