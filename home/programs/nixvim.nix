@@ -348,6 +348,19 @@
 			telescope = {
         enable = true;
         settings = {
+          defaults = {
+            file_ignore_patterns = [
+              "^.git/"
+              "^.mypy_cache/"
+              "^__pycache__/"
+              "^output/"
+              "%.ipynb"
+              "^node_modules/"  
+              "^app/fonts/"
+              "^public/"
+              "^.next/"          
+            ];
+          };
           pickers = {
             find_files = {
               hidden = true;
