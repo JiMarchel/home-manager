@@ -30,10 +30,11 @@
     tree
     unzip
 		wl-clipboard
-
-    brave
+    vim
+    curl
+    git
     unzip
-    # wl-clipboard
+    # brave
     
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust

@@ -218,6 +218,9 @@
    };
 
     plugins = {
+      ts-comments ={
+        enable = true;
+      };
       tmux-navigator = {
         enable = true;
         };
@@ -350,15 +353,16 @@
         settings = {
           defaults = {
             file_ignore_patterns = [
-              "^.git/"
+              ".git/"
               "^.mypy_cache/"
               "^__pycache__/"
               "^output/"
               "%.ipynb"
-              "^node_modules/"  
-              "^app/fonts/"
-              "^public/"
-              "^.next/"          
+              "node_modules/"  
+              "app/fonts/"
+              "public/"
+              ".next/"          
+              "assets"
             ];
           };
           pickers = {
