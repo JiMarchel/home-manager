@@ -34,6 +34,7 @@
     curl
     git
     unzip
+    vlc
     # brave
     
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
@@ -45,6 +46,7 @@
     nodejs_22
     deno
     bun
+    yarn
 
     # android-studio
   ];
