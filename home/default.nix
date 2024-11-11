@@ -35,6 +35,7 @@
     git
     unzip
     vlc
+    libreoffice-qt
     # brave
     
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
