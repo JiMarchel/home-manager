@@ -1,18 +1,28 @@
-{ config, pkgs,  ... }:
-
+{ config, lib, pkgs,  inputs,  ... }:
+let
+  nixGLIntel = inputs.nixGL.packages.${pkgs.system}.nixGLIntel;
+in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+    imports = [
+       ./programs/tmux.nix 
+       ./programs/git.nix
+       ./programs/nixvim.nix
+       ./programs/zellij.nix
+       ./programs/bash.nix
+       ./programs/starship.nix
+       ./programs/hyprland.nix
+
+       (builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+        sha256 = "1krclaga358k3swz2n5wbni1b2r7mcxdzr6d7im6b66w3sbpvnb3";
+        })
+	    ];
+
+  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
+
   home.username = "marchel";
   home.homeDirectory = "/home/marchel";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs = {
     config = {
@@ -20,8 +30,6 @@
       allowUnfreePredicate = (_: true);
       };
     };
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
@@ -29,7 +37,6 @@
     bat
     tree
     unzip
-		wl-clipboard
     vim
     curl
     git
@@ -51,6 +58,34 @@
     grimblast # screenshot tool
     slurp
 
+    # Hyprland stuff
+    libva # screenshare testing
+    libsForQt5.qt5.qtwayland # screenshare testing
+    qt6.qtwayland # screenshare testing
+    adwaita-qt6 # screenshare testing
+    bibata-cursors  
+    hicolor-icon-theme
+    gtk-layer-shell
+    libsForQt5.polkit-kde-agent
+
+    nwg-launchers
+    nwg-bar
+    wofi
+    nwg-drawer
+    swaybg
+    wlsunset
+    swaylock-effects
+    swayidle
+    hyprpaper
+    wl-clipboard
+    clipman # wayland clipboard manager
+    hyprpicker
+    swaynotificationcenter      
+    pavucontrol
+
+    ripdrag # drag files from terminal
+    ydotool # key automation tool
+
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
     rustup
@@ -60,54 +95,49 @@
     nodejs_22
     deno
     bun
-    yarn
 
     # android-studio
+    (config.lib.nixGL.wrap alacritty)
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  # Fix for some XDG path issues:
+  xdg.configFile."environment.d/envvars.conf".text = ''
+    PATH="$HOME/.nix-profile/bin:$PATH"
+  '';
+  xdg.enable=true;
+  xdg.mime.enable=true;
+  targets.genericLinux.enable=true;
+  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications"  "${config.home.homeDirectory}/.nix-profile/share/" ];
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  ## GTK theme stuff
+  home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
+      size = 24;
   };
+  gtk = {
+      enable = true;
+      theme = {
+          package = pkgs.flat-remix-gtk;
+          name = "Flat-Remix-GTK-Grey-Darkest";
+      };
+      iconTheme = {
+          package = pkgs.libsForQt5.breeze-icons;
+          name = "breeze-dark";
+      };
+      # font = {
+      #     name = "Sans";
+      #     size = 10;
+      # };
+  };  
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/marchel/etc/profile.d/hm-session-vars.sh
-  #
+  home.file = {};
+
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
 
-  imports = [
-       ./programs/tmux.nix 
-       ./programs/git.nix
-       ./programs/nixvim.nix
-       ./programs/zellij.nix
-       ./programs/bash.nix
-       ./programs/starship.nix
-	    ];
-
-  programs.home-manager.enable = true;
+      programs.home-manager.enable = true;
 }
