@@ -36,8 +36,21 @@
     unzip
     vlc
     libreoffice-qt
+    kitty
     # brave
     
+    # Waybar stuff:
+    font-awesome # Needed for waybar icons
+    networkmanagerapplet
+    brightnessctl # Commandline brightness controll
+    wttrbar # For weather info
+    blueberry # Bluetooth config tool
+    playerctl # For music controll
+    swappy # Screenshot edit tool 
+    sway-contrib.grimshot # Screenshot tool
+    grimblast # screenshot tool
+    slurp
+
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
     rustup
