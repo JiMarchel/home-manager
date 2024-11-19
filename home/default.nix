@@ -1,6 +1,6 @@
 { config, lib, pkgs,  inputs,  ... }:
 let
-  nixGLIntel = inputs.nixGL.packages.${pkgs.system}.nixGLIntel;
+  nixGLIntel = inputs.nixGL.packages.${pkgs.system}.nixGLIntel.wrap;
 in
 {
     imports = [
@@ -11,6 +11,7 @@ in
        ./programs/bash.nix
        ./programs/starship.nix
        ./programs/hyprland.nix
+       ./programs/nixgl.nix
 
        (builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
@@ -18,7 +19,7 @@ in
         })
 	    ];
 
-  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
+  # nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
   home.username = "marchel";
   home.homeDirectory = "/home/marchel";
@@ -43,7 +44,8 @@ in
     unzip
     vlc
     libreoffice-qt
-    kitty
+    (config.lib.nixGL.wrap kitty)
+
     # brave
     
     # Waybar stuff:
@@ -97,7 +99,7 @@ in
     bun
 
     # android-studio
-    (config.lib.nixGL.wrap alacritty)
+
   ];
 
   # Fix for some XDG path issues:

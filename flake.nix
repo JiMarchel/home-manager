@@ -14,12 +14,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixGL = {
-      url = "github:nix-community/nixGL/310f8e49a149e4c9ea52f1adf70cdc768ec53f8a";
+      url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {self, nixpkgs, home-manager, nixvim , ... } @ inputs :
+  outputs = {self, nixpkgs, home-manager, nixvim , nixGL, ... } @ inputs :
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -34,6 +34,7 @@
         inherit pkgs;
         extraSpecialArgs = {
           inherit self nixpkgs inputs;
+        inherit nixGL;
         };
         modules = [ 
           ./home/default.nix 

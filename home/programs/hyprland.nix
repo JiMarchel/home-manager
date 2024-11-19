@@ -1,7 +1,12 @@
-{
+{ pkgs, config, inputs, ... }:
+ {
   wayland.windowManager.hyprland = {
-      enable = true;
-      extraConfig = ''
+    enable = true;
+    package = config.lib.nixGL.wrap pkgs.hyprland;
+
+    systemd.enable = true;
+    xwayland.enable = true;
+    extraConfig = ''
             env = WLR_NO_HARDWARE_CURSORS,1
 
             #     Monitors
