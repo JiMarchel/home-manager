@@ -1,7 +1,4 @@
-{ config, lib, pkgs,  inputs,  ... }:
-let
-  nixGLIntel = inputs.nixGL.packages.${pkgs.system}.nixGLIntel.wrap;
-in
+{ config, pkgs, ... }:
 {
     imports = [
        ./programs/tmux.nix 
@@ -19,7 +16,6 @@ in
         })
 	    ];
 
-  # nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
   home.username = "marchel";
   home.homeDirectory = "/home/marchel";
@@ -44,6 +40,7 @@ in
     unzip
     vlc
     libreoffice-qt
+    nettools
 
     (config.lib.nixGL.wrap kitty)
 
@@ -122,10 +119,10 @@ in
   };
   gtk = {
       enable = true;
-      theme = {
-          package = pkgs.flat-remix-gtk;
-          name = "Flat-Remix-GTK-Grey-Darkest";
-      };
+      # theme = {
+      #     package = pkgs.midnight;
+      #     name = "Midnight-Solarized";
+      # };
       iconTheme = {
           package = pkgs.libsForQt5.breeze-icons;
           name = "breeze-dark";
