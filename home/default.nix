@@ -44,6 +44,8 @@ in
     unzip
     vlc
     libreoffice-qt
+    vscode
+
     (config.lib.nixGL.wrap kitty)
 
     # brave
