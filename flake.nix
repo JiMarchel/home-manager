@@ -17,9 +17,13 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {self, nixpkgs, home-manager, nixvim , nixGL, ... } @ inputs :
+  outputs = {self, nixpkgs, home-manager, nixvim , nixGL, hyprpanel, ... } @ inputs :
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -28,13 +32,16 @@
         allowUnfree = true;
         allowUnfreePredicate = _: true;
       };
+      overlays = [
+        hyprpanel.overlay
+      ];
     };
     in {
       homeConfigurations."marchel" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit self nixpkgs inputs;
-        inherit nixGL;
+          inherit nixGL;
         };
         modules = [ 
           ./home/default.nix 

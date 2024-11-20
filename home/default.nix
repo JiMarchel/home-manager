@@ -55,7 +55,7 @@
     playerctl # For music controll
     swappy # Screenshot edit tool 
     sway-contrib.grimshot # Screenshot tool
-    grimblast # screenshot tool
+    grim # screenshot tool
     slurp
 
     # Hyprland stuff
@@ -68,12 +68,12 @@
     gtk-layer-shell
     libsForQt5.polkit-kde-agent
 
-    nwg-launchers
-    nwg-bar
+    # nwg-launchers
+    # nwg-bar
     wofi
-    nwg-drawer
+    # nwg-drawer
     swaybg
-    wlsunset
+    # wlsunset
     swaylock-effects
     swayidle
     hyprpaper
@@ -82,7 +82,6 @@
     hyprpicker
     swaynotificationcenter      
     pavucontrol
-
     ripdrag # drag files from terminal
     ydotool # key automation tool
 
@@ -136,7 +135,10 @@
   home.file = {};
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+      TERMINAL = "wezterm";
+      VISUAL = "nvim";
+      EDITOR = "nvim";
+      BROWSER = "zen-browser";
   };
 
       programs.home-manager.enable = true;
