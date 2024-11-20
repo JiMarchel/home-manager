@@ -9,6 +9,7 @@
        ./programs/starship.nix
        ./programs/hyprland.nix
        ./programs/nixgl.nix
+       ./programs/kitty.nix
 
        (builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
@@ -41,8 +42,6 @@
     vlc
     libreoffice-qt
     nettools
-
-    (config.lib.nixGL.wrap kitty)
 
     # brave
     
