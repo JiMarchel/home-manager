@@ -604,23 +604,25 @@
       notify.enable = false;
       noice = {
         enable = true;
+        settings = {
         routes = [
-          {
-            filter = {
-              event = "notify";
-              find = "No information available";
-            };
-            opts.skip = true;
-          }
-          {
-            filter = {
-              event = "lsp";
-              kind = "progress";
-              find = "jdtls";
-            };
-            opts.skip = true;
-          }
-        ];
+            {
+              filter = {
+                event = "notify";
+                find = "No information available";
+              };
+              opts.skip = true;
+            }
+            {
+              filter = {
+                event = "lsp";
+                kind = "progress";
+                find = "jdtls";
+              };
+              opts.skip = true;
+            }
+          ];
+        };
       };
       nvim-colorizer.enable = true;
    };   

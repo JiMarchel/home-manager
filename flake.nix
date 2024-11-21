@@ -17,13 +17,14 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {self, nixpkgs, home-manager, nixvim , nixGL, hyprpanel, ... } @ inputs :
+  outputs = {self, nixpkgs, home-manager, nixvim , nixGL, hyprpanel, stylix, ... } @ inputs :
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -46,6 +47,7 @@
         modules = [ 
           ./home/default.nix 
           nixvim.homeManagerModules.nixvim
+          stylix.homeManagerModules.stylix
   		  ];
       };
 

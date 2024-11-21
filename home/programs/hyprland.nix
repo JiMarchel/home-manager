@@ -60,12 +60,12 @@
       "$zen" = "$HOME/.local/share/AppImage/ZenBrowser.AppImage";
       bind =  [
         # Exit
-        "CTRL ALT, Esc, exit"
+        "CTRL ALT, Q, exit"
 
         # Top level bindings
         "$mainMod, Tab, cyclenext"
         "$mainMod, Return, exec, kitty"
-        "$mainMod, W, exec, wofi"
+        "$mainMod, W, exec, rofi -show drun"
         "$mainMod, E, exec, nautilus"
         "$mainMod, L, exec, hyprlock"
         "$mainMod, B, exec, $zen"
@@ -76,7 +76,7 @@
         "$mainMod, S, swapsplit,"
 
         # Second level bindings
-        "$mainMod SHIFT, Q, killactive,"
+        "$mainMod, Q, killactive,"
         "$mainMod SHIFT, Space, togglefloating,"
 
         # Move focus with modifier + arrow keys
@@ -124,10 +124,11 @@
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
+        # drop_shadow = "yes";
+        # shadow_range = 8;
+        # shadow_render_power = 2;
+        # "col.shadow" = "rgba(00000044)";
+        rounding = 8;
         dim_inactive = false;
         blur = {
           enabled = true;

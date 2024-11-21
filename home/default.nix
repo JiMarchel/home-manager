@@ -10,6 +10,7 @@
        ./programs/hyprland.nix
        ./programs/nixgl.nix
        ./programs/kitty.nix
+       ./programs/stylix.nix
 
        (builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
@@ -29,6 +30,10 @@
       };
     };
 
+  disabledModules = [
+    "/nix/store/ipgxl36m0fp9mkwvfarfk6ypqva14fkp-source/modules/misc/nixgl.nix"
+  ];
+
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     neofetch
@@ -42,47 +47,29 @@
     vlc
     libreoffice-qt
     nettools
-
+    btop
     # brave
-    
-    # Waybar stuff:
+    rofi
+    wl-clipboard
+
+   
     font-awesome # Needed for waybar icons
     networkmanagerapplet
     brightnessctl # Commandline brightness controll
-    wttrbar # For weather info
     blueberry # Bluetooth config tool
-    playerctl # For music controll
     swappy # Screenshot edit tool 
     sway-contrib.grimshot # Screenshot tool
     grim # screenshot tool
     slurp
 
-    # Hyprland stuff
-    libva # screenshare testing
-    libsForQt5.qt5.qtwayland # screenshare testing
-    qt6.qtwayland # screenshare testing
-    adwaita-qt6 # screenshare testing
-    bibata-cursors  
-    hicolor-icon-theme
-    gtk-layer-shell
-    libsForQt5.polkit-kde-agent
-
-    # nwg-launchers
-    # nwg-bar
-    wofi
-    # nwg-drawer
-    swaybg
-    # wlsunset
-    swaylock-effects
-    swayidle
-    hyprpaper
-    wl-clipboard
-    clipman # wayland clipboard manager
-    hyprpicker
-    swaynotificationcenter      
-    pavucontrol
-    ripdrag # drag files from terminal
-    ydotool # key automation tool
+    # # Hyprland stuff
+    # libva # screenshare testing
+    # libsForQt5.qt5.qtwayland # screenshare testing
+    # qt6.qtwayland # screenshare testing
+    # adwaita-qt6 # screenshare testing
+    # hicolor-icon-theme
+    # gtk-layer-shell
+    # libsForQt5.polkit-kde-agent
 
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
@@ -107,38 +94,20 @@
   targets.genericLinux.enable=true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications"  "${config.home.homeDirectory}/.nix-profile/share/" ];
 
-  ## GTK theme stuff
-  home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Amber";
-      size = 24;
-  };
   gtk = {
       enable = true;
-      # theme = {
-      #     package = pkgs.midnight;
-      #     name = "Midnight-Solarized";
-      # };
       iconTheme = {
           package = pkgs.libsForQt5.breeze-icons;
           name = "breeze-dark";
       };
-      # font = {
-      #     name = "Sans";
-      #     size = 10;
-      # };
   };  
+
+  
 
   home.file = {};
 
   home.sessionVariables = {
-      TERMINAL = "wezterm";
-      VISUAL = "nvim";
-      EDITOR = "nvim";
-      BROWSER = "zen-browser";
   };
 
-      programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 }
