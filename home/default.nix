@@ -11,6 +11,7 @@
        ./programs/nixgl.nix
        ./programs/kitty.nix
        ./programs/stylix.nix
+       ./programs/fastfetch.nix
 
        (builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
@@ -36,7 +37,6 @@
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    neofetch
     bat
     tree
     unzip
@@ -51,8 +51,8 @@
     # brave
     rofi
     wl-clipboard
+    postman
 
-   
     font-awesome # Needed for waybar icons
     networkmanagerapplet
     brightnessctl # Commandline brightness controll
