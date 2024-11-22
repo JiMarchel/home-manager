@@ -52,24 +52,28 @@
     rofi
     wl-clipboard
     postman
-
+    pipewire
+    libgtop # Resource monitoring modules
     font-awesome # Needed for waybar icons
     networkmanagerapplet
     brightnessctl # Commandline brightness controll
-    blueberry # Bluetooth config tool
+    ## Bluetooth menu utilities
+    bluez
+    bluez-tools    
+    dart-sass # Compiler for sass/scss
     swappy # Screenshot edit tool 
     sway-contrib.grimshot # Screenshot tool
     grim # screenshot tool
     slurp
-
-    # # Hyprland stuff
-    # libva # screenshare testing
-    # libsForQt5.qt5.qtwayland # screenshare testing
-    # qt6.qtwayland # screenshare testing
-    # adwaita-qt6 # screenshare testing
-    # hicolor-icon-theme
-    # gtk-layer-shell
-    # libsForQt5.polkit-kde-agent
+    gnome-bluetooth
+    ## To switch between power profiles in the battery module
+    power-profiles-daemon
+    ## To take snapshots with the default snapshot shortcut in the dashboard
+    grimblast
+    ## To record screen through the dashboard record shortcut
+    gpu-screen-recorder
+    ## To enable the eyedropper color picker with the default snapshot shortcut in the dashboard
+    hyprpicker
 
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #rust
