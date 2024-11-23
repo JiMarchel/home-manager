@@ -106,8 +106,6 @@
       };
   };  
 
-  
-
   home.file = {};
 
   home.sessionVariables = {
