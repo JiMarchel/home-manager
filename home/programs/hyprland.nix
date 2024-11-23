@@ -61,6 +61,7 @@
       bind =  [
         # Exit
         "CTRL ALT, Q, exit"
+        "$mainMod SHIFT, Q, exec, wlogout"
 
         # Top level bindings
         "$mainMod, Tab, cyclenext"
